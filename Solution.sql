@@ -55,6 +55,6 @@ HAVING avg_dur > 120;
 In your output, only select the columns title, length, and the rank.
 */
 
-SELECT title, length, rating FROM film
+SELECT ROW_NUMBER() OVER() AS "Rank", title, length FROM film
 WHERE (length > 0) OR (NOT null)
 ORDER BY length DESC;
